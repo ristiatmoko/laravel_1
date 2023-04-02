@@ -4,38 +4,30 @@
         <a href="index.html" class="logo d-flex align-items-center">
             <!-- Uncomment the line below if you also wish to use an image logo -->
             <!-- <img src="assets/img/logo.png" alt=""> -->
-            <h1>UpConstruction<span>.</span></h1>
+            <h1>HabibSileh<span>.</span></h1>
         </a>
 
         <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
         <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
-        <nav id="navbar" class="navbar">
+        <nav id="navbar" class="navbar navbar-light">
             <ul>
-                <li><a href="/" class="active">Home</a></li>
-                <li><a href="about.html" class="nav-link disabled">About</a></li>
-                <li><a href="services.html" class="nav-link disabled">Services</a></li>
-                <li><a href="projects.html" class="nav-link disabled">Projects</a></li>
-                <li><a href="/post">Blog</a></li>
-                <li class="dropdown nav-link disabled"><a href="#"><span>Dropdown</span> <i
+                <li><a href="/" class="{{ $active === 'home' ? 'active' : '' }}">Home</a></li>
+                <li><a href="/posts" class="{{ $active === 'posts' ? 'active' : '' }}">Blog</a></li>
+                <li><a href="/categories" class="{{ $active === 'categories' ? 'active' : '' }}">Category</a></li>
+                @auth
+                <li class="dropdown nav-link "><a href=""><span>Welcome, {{ auth()->user()->username }}</span> <i
                             class="bi bi-chevron-down dropdown-indicator"></i></a>
                     <ul>
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li class="dropdown"><a href="#"><span>Deep Dropdown</span> <i
-                                    class="bi bi-chevron-down dropdown-indicator"></i></a>
-                            <ul>
-                                <li><a href="#">Deep Dropdown 1</a></li>
-                                <li><a href="#">Deep Dropdown 2</a></li>
-                                <li><a href="#">Deep Dropdown 3</a></li>
-                                <li><a href="#">Deep Dropdown 4</a></li>
-                                <li><a href="#">Deep Dropdown 5</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
+                        <li><a href=""><i class="bi bi-house"></i>My Dashboard</a></li>
+                        <form action="/logout" method="post">
+                            @csrf
+                            <button type="submit" class="dropdown-item"><i class="bi bi-arrow-right-square"></i>Logout</button>
+                        </form>
                     </ul>
                 </li>
-                <li><a href="contact.html" class="nav-link disabled">Contact</a></li>
+                @else
+                    <li><a href="/login" class="{{ $active === 'login' ? 'active' : '' }}">Login</a></li>
+                @endauth
             </ul>
         </nav><!-- .navbar -->
 
