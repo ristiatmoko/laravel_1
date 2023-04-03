@@ -79,7 +79,7 @@
                         </div>
 
                         <button class="w-100 btn btn-lg btn-primary" type="submit">Register</button>
-                        <small class="d-block text-center">Already have account? <a href="{{ route('login.view') }}">Please Login!</a></small>
+                        <small class="d-block text-center">Already have account? <a href="/login">Please Login!</a></small>
                     </form>
                 </main>
             </div>
