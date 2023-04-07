@@ -28,7 +28,13 @@
                     <article class="blog-details">
 
                         <div class="post-img">
-                            <img src="{{ asset('../img/blog/blog-1.jpg') }}" alt="" class="img-fluid">
+                            @if($post->image)
+                                <img src="{{ asset('storage/' . $post->image) }}"
+                                     class="img-fluid" alt="">
+                            @else
+                                <img src="https://source.unsplash.com/1200x800/?{{ $post->category->name }}"
+                                     class="img-fluid" alt="">
+                            @endif
                         </div>
 
                         <h2 class="title">{{ $post['title'] }}

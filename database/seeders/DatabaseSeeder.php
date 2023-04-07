@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
 
-        User::factory(5)->create();
+        User::factory(3)->create();
 
         Category::create([
             'name' => 'Football',
@@ -37,11 +37,12 @@ class DatabaseSeeder extends Seeder
 
         Post::factory(20)->create();
 
-        // User::create([
-        //     'name' => 'risti',
-        //     'email' => 'risti@gmail.com',
-        //     'password' => bcrypt('12345')
-        // ]);
+         User::create([
+             'name' => 'Risti Atmoko',
+             'username' => 'ristiatmoko',
+             'email' => 'ristiatmoko@gmail.com',
+             'password' => bcrypt('12345')
+         ]);
 
         // Post::create([
         //     'title' => 'first-title',

@@ -109,9 +109,13 @@
                             <div class="post-item position-relative h-100">
 
                                 <div class="post-img position-relative overflow-hidden">
-                                    <img src="https://source.unsplash.com/1200x800/?{{ $post->category->name }}"
-                                        class="img-fluid" alt="">
-                                    {{-- <img src="{{ asset('../img/blog/blog-1.jpg') }}" class="img-fluid" alt=""> --}}
+                                    @if($post->image)
+                                        <img src="{{ asset('storage/' . $post->image) }}"
+                                             class="img-fluid" alt="">
+                                    @else
+                                        <img src="https://source.unsplash.com/1200x800/?{{ $post->category->name }}"
+                                             class="img-fluid" alt="">
+                                    @endif
                                     <span class="post-date">December 12</span>
                                 </div>
 
